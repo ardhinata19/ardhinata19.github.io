@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>GeoAr.js demo</title>
+
+    <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
+    <script src="https://unpkg.com/aframe-look-at-component@0.8.0/dist/aframe-look-at-component.min.js"></script>
+    <script type='text/javascript'
+            src='https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js'></script>
+    <script src="//cdn.rawgit.com/donmccurdy/aframe-physics-system/v4.0.1/dist/aframe-physics-system.min.js"></script>
+</head>
+<body style='margin : 0px; overflow: hidden;'>
+<script>
+    AFRAME.registerComponent('locationfinder', {
+        init: function () {
+            navigator.geolocation.getCurrentPosition(function (location) {
+                console.log(location);
+                console.log(location);
+            });
+        }
+    });
+</script>
+<a-scene embedded arjs="source:webcam;">
+    <a-camera locationfinder gps-camera="simulateLatitude: -6.175628; simulateLongitude: 106.827188"
+              rotation-reader></a-camera>
+
+    <a-text
+            value="Patung diponogoro"
+            scale="15 15 15"
+            look-at="[gps-camera]"
+            align="center"
+            gps-entity-place="latitude: -6.173708; longitude: 106.827184;"
+
+
+    ></a-text><html>
+<head>
+    <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
+    <script src="https://cdn.rawgit.com/jeromeetienne/AR.js/2.0.0/aframe/build/aframe-ar.js"></script>
+</head>
+<body style='margin : 0px; overflow: hidden;'>
+<a-scene embedded arjs='trackingMethod: best;'>
+    <a-marker type='pattern' url='path/to/marker.patt'>
+        <a-box position='0 0.5 0' material='color: yellow;'></a-box>
+    </a-marker>
+    <a-entity camera></a-entity>
+</a-scene>
+</body>
+</html>
+
+    <a-text
+            value="Patung Kartini"
+            scale="15 15 15"
+            look-at="[gps-camera]"
+            align="center"
+            gps-entity-place="latitude: -6.175679 ;longitude: 106.829368;"
+    ></a-text>
+
+    <a-text
+            value="Patung Tamprin"
+            scale="15 15 15"
+            look-at="[gps-camera]"
+            align="center"
+            gps-entity-place="latitude: -6.175391; longitude: 106.824907;"
+    ></a-text>
+</a-scene>
+</body>
+</html>
